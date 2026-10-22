@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4_Plametiuk_V23", "Lab4_Plametiuk_V23.csproj", "{8BC9023D-2251-41D0-A435-EE995F35FB9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BC9023D-2251-41D0-A435-EE995F35FB9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC9023D-2251-41D0-A435-EE995F35FB9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC9023D-2251-41D0-A435-EE995F35FB9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC9023D-2251-41D0-A435-EE995F35FB9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {600C14DF-7E4F-4E22-B607-2F4F0662BD6F}
+	EndGlobalSection
+EndGlobal
