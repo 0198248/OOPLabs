@@ -17,6 +17,7 @@ namespace labs
 
             Trip firstObject = new Trip("Луцьк–Ковель", 22, 55);
             Trip secondObject = new Trip("Пробіжка", 3.2, 40);
+            Trip thirdObject = new Trip("Луцьк–Рівне");
 
             Console.WriteLine("Перший об'єкт:");
             firstObject.PrintInfo();
@@ -25,6 +26,10 @@ namespace labs
             Console.WriteLine("Другий об'єкт:");
             secondObject.PrintInfo();
             Console.WriteLine($"Відстань: {Math.Round(firstObject.CalculateDistanceMeters(), 2)} м\n");
+
+            Console.WriteLine("Третій об'єкт (другий конструктор):");
+            thirdObject.PrintInfo();
+            Console.WriteLine($"Відстань: {Math.Round(thirdObject.CalculateDistanceMeters(), 2)} м\n");
 
             firstObject.Extend(20);
 
@@ -66,6 +71,10 @@ namespace labs
             this.Route = route;
             this.SpeedMetersPerSecond = speedMetersPerSecond;
             this.DurationMinutes = durationMinutes;
+        }
+        public Trip(string route) : this(route, 0, 0)
+        {
+
         }
 
         public double CalculateDistanceMeters()

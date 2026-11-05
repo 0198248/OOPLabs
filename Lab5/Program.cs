@@ -22,27 +22,27 @@ namespace labs
 
             int[] numbers = CreateRandomArray(N, minValue, maxValue, variant);
 
-            PrintArray("Початковий масив:", numbers);
+            PrintResult("Початковий масив:", numbers);
 
-            Console.WriteLine($"Сума елементів: {Sum(numbers)}");
-            Console.WriteLine($"Середнє арифметичне: {Average(numbers):F2}");
-            Console.WriteLine($"Мінімальний елемент: {FindMinimum(numbers)}");
-            Console.WriteLine($"Максимальний елемент: {FindMaximum(numbers)}");
+            PrintResult("Сума елементів:", Sum(numbers));
+            PrintResult("Середнє арифметичне:", Average(numbers));
+            PrintResult("Мінімальний елемент:", FindMinimum(numbers));
+            PrintResult("Максимальний елемент:", FindMaximum(numbers));
 
             Console.WriteLine($"\nКількість елементів, найближчих до P = {P}:");
             int closestIndex = FindClosestIndex(numbers, P);
-            Console.WriteLine($"Індекс найближчого елемента: {closestIndex}");
-            Console.WriteLine($"Значення елемента: {numbers[closestIndex]}");
+            PrintResult("Індекс найближчого елемента:", closestIndex);
+            PrintResult("Значення елемента:", numbers[closestIndex]);
 
             int[] testNumbers = { -35, -20, -18, 0, 15, 40 };
             int testP = -20;
 
-            PrintArray("\nКонтрольний масив:", testNumbers);
+            PrintResult("\nКонтрольний масив:", testNumbers);
 
             int testClosestIndex = FindClosestIndex(testNumbers, testP);
-            Console.WriteLine($"P = {testP}");
-            Console.WriteLine($"Індекс найближчого елемента: {testClosestIndex}");
-            Console.WriteLine($"Значення елемента: {testNumbers[testClosestIndex]}");
+            PrintResult($"P = {testP}", testP);
+            PrintResult("Індекс найближчого елемента:", testClosestIndex);
+            PrintResult("Значення елемента:", testNumbers[testClosestIndex]);
 
             Console.Write("\nВведіть текст: ");
             string? text = Console.ReadLine();
@@ -57,7 +57,7 @@ namespace labs
 
             Console.WriteLine($"Початковий текст: [{text}]");
             Console.WriteLine($"Текст без зайвих пробілів: [{normalizedText}]");
-            Console.WriteLine($"Кількість слів: {CountWords(text)}");
+            PrintResult("Кількість слів:", CountWords(text));
         }
 
         static void PrintStudentInfo(string fullName, string group, int variant)
@@ -65,6 +65,26 @@ namespace labs
             Console.WriteLine($"Студент: {fullName}");
             Console.WriteLine($"Група: {group}");
             Console.WriteLine($"Варіант: {variant}\n");
+        }
+
+        static void PrintResult(string title, int value)
+        {
+            Console.WriteLine($"{title} {value}");
+        }
+
+        static void PrintResult(string title, double value)
+        {
+            Console.WriteLine($"{title} {value:F2}");
+        }
+
+        static void PrintResult(string title, int[] values)
+        {
+            Console.WriteLine(title);
+
+            foreach (int value in values)
+                Console.Write($"{value} ");
+
+            Console.WriteLine();
         }
 
         static int[] CreateRandomArray(int length, int minValue, int maxValue, int seed)
@@ -76,16 +96,6 @@ namespace labs
                 numbers[i] = rand.Next(minValue, maxValue + 1);
 
             return numbers;
-        }
-
-        static void PrintArray(string title, int[] numbers)
-        {
-            Console.WriteLine(title);
-
-            foreach (int number in numbers)
-                Console.Write($"{number} ");
-
-            Console.WriteLine();
         }
 
         static int Sum(int[] numbers)

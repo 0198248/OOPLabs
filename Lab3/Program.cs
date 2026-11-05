@@ -23,49 +23,55 @@ namespace labs
             for (int x = 0; x < nums.Length; x++)
                 nums[x] = rand.Next(minValue, maxValue);
 
-            Console.WriteLine($"Масив: ");
-            for (int num = 0; num < nums.Length; num++)
-            {
-                Console.Write($"{nums[num]} ({num + 1}),");
-            }
-                
+            Console.WriteLine("Масив до розвороту:");
+            foreach (int num in nums)
+                Console.Write($"{num}, ");
 
-            Console.WriteLine($"\nСумма: {Sum(nums)}");
+            ArrReverse(nums);
 
-            Console.WriteLine($"середнє арифметичне: {Avr(nums)}");
+            Console.WriteLine("\nМасив після розвороту:");
+            foreach (int num in nums)
+                Console.Write($"{num}, ");
+
+            Console.WriteLine($"\nСума: {Sum(nums)}");
+
+            Console.WriteLine($"Середнє арифметичне: {Avr(nums)}");
 
             int min, minP;
             Min(nums, out min, out minP);
-            Console.WriteLine($"мінімальний елемент: {min}, індекс його першого входження: {minP + 1}");
+            Console.WriteLine($"Мінімальний елемент: {min}, індекс його першого входження: {minP + 1}");
 
             int max, maxP;
             Max(nums, out max, out maxP);
-            Console.WriteLine($"максимальний елемент: {max}, індекс його першого входження: {maxP + 1}");
+            Console.WriteLine($"Максимальний елемент: {max}, індекс його першого входження: {maxP + 1}");
 
             List<int> elements = new List<int>();
 
             foreach (int num in nums)
                 if ((num % P) == 0)
                     elements.Add(num);
+
             if (elements.LongCount() != 0)
             {
                 Console.WriteLine($"Елементи, кратні {P}:");
                 foreach (int num in elements)
                     Console.Write($"{num}, ");
+
                 Console.WriteLine($"\nЇх кількість: {elements.LongCount()}," +
                     $" сума: {Sum(elements)} та" +
-                    $" середнє арифметичне: {Sum(elements) / elements.LongCount()} ");
+                    $" середнє арифметичне: {(double)Sum(elements) / elements.LongCount()}");
             }
             else
-                Console.WriteLine($"Еемає елементів, кратних {P}");
+                Console.WriteLine($"Немає елементів, кратних {P}");
 
             Array.Sort(nums);
-            Console.WriteLine("Відсортований масив: ");
+            Console.WriteLine("Відсортований масив:");
             foreach (int num in nums)
                 Console.Write($"{num}, ");
 
-            int[,] nums2D = new int[4,4];
+            int[,] nums2D = new int[4, 4];
             Console.WriteLine("\nДвовимірний масив:");
+
             for (int num1 = 0; num1 < nums2D.GetLength(0); num1++)
             {
                 for (int num2 = 0; num2 < nums2D.GetLength(1); num2++)
@@ -75,64 +81,72 @@ namespace labs
                 }
                 Console.WriteLine("");
             }
+
             int sum = 0, m = 0, n = 0;
 
             Console.WriteLine("");
+
             for (int num1 = 0; num1 < nums2D.GetLength(0); num1++)
             {
                 for (int num2 = 0; num2 < nums2D.GetLength(1); num2++)
                     sum += nums2D[num1, num2];
-                Console.WriteLine($"Сумма рядка {num1 + 1}: {sum}");
-                if (m == 0)
-                {
-                    m = sum;
-                    n = num1;
-                }
-                else if (m < sum)
+
+                Console.WriteLine($"Сума рядка {num1 + 1}: {sum}");
+
+                if (num1 == 0 || m < sum)
                 {
                     m = sum;
                     n = num1;
                 }
 
-                    sum = 0;
-                
+                sum = 0;
             }
-            Console.WriteLine($"індекс рядка з найбільшою сумою: {n} та значення цієї суми: {m}");
 
-
-
+            Console.WriteLine($"Індекс рядка з найбільшою сумою: {n} та значення цієї суми: {m}");
         }
+
         static int Sum(int[] nums)
         {
             int summa = 0;
             foreach (int x in nums)
-            {
                 summa += x;
-            }
+
             return summa;
         }
+
+        static void ArrReverse(int[] nums1)
+        {
+            for (int x = 0; x < nums1.Length / 2; x++)
+            {
+                int temp = nums1[x];
+                nums1[x] = nums1[nums1.Length - 1 - x];
+                nums1[nums1.Length - 1 - x] = temp;
+            }
+        }
+
         static int Sum(List<int> nums)
         {
             int summa = 0;
             foreach (int x in nums)
-            {
                 summa += x;
-            }
+
             return summa;
         }
+
         static double Avr(int[] nums)
         {
             int summa = 0;
             foreach (int x in nums)
-            {
                 summa += x;
-            }
-            return summa/nums.Length;
+
+            return (double)summa / nums.Length;
         }
+
         static void Min(int[] nums, out int summa, out int place)
         {
             summa = nums[0];
             place = 0;
+
             for (int x = 0; x < nums.Length; x++)
             {
                 if (summa > nums[x])
@@ -142,10 +156,12 @@ namespace labs
                 }
             }
         }
+
         static void Max(int[] nums, out int summa, out int place)
         {
             summa = nums[0];
             place = 0;
+
             for (int x = 0; x < nums.Length; x++)
             {
                 if (summa < nums[x])

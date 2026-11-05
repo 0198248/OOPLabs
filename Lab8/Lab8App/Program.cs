@@ -23,6 +23,7 @@ namespace labs
 
             House house = new House("Потебні, 56", 126, 5);
             Warehouse warehouse = new Warehouse("Склад 23", 530, 63);
+            Room room = new Room("Волі, 56", 25, 1, -1);
 
             Console.WriteLine("=== БУДИНОК ===");
             Console.WriteLine($"Базова інформація: {house.GetBaseInfo()}");
@@ -34,6 +35,12 @@ namespace labs
             Console.WriteLine($"Базова інформація: {warehouse.GetBaseInfo()}");
             Console.WriteLine($"Повна інформація: {warehouse.GetInfo()}");
             Console.WriteLine($"Використана площа: {warehouse.CalculateUsedArea():F2} м");
+            Console.WriteLine();
+
+            Console.WriteLine("=== КІМНАТА ===");
+            Console.WriteLine($"Базова інформація: {room.GetBaseInfo()}");
+            Console.WriteLine($"Повна інформація: {room.GetDetailedInfo()}");
+            Console.WriteLine($"Вікон на один м: {room.WindowsPerArea():F2}");
             Console.WriteLine();
 
             Building building = house;

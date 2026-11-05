@@ -21,6 +21,8 @@ namespace labs
 
             double a = 10, b = 20, c = 30;
 
+            //ValidationTools.IsPositive(a); Помилка, бо тип internal доступний тільки для класів в межах тієї самої збірки що і ValidationTools
+
             double average = MathTools.CalculateAverage(a, b, c);
 
             Console.WriteLine($"Перше число: {a}");

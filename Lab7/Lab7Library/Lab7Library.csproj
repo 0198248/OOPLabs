@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculations\MathTools.cs" />
+    <Compile Include="Common\ValidationTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextProcessing\TextTools.cs" />
   </ItemGroup>
