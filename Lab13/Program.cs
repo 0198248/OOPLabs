@@ -9,8 +9,6 @@ namespace WeatherFileApp
         static void Main()
         {
 
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
-            Console.InputEncoding = System.Text.Encoding.Unicode;
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
