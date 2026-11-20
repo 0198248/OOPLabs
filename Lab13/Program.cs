@@ -1,4 +1,4 @@
-namespace Lab13
+namespace WeatherFileApp
 {
     internal static class Program
     {

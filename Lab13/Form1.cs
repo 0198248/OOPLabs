@@ -3,7 +3,7 @@ using System.IO;
 using System.Net.Http;
 using System.Text.Json;
 
-namespace Lab13
+namespace WeatherFileApp
 {
     public partial class MainForm : Form
     {
