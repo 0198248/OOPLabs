@@ -4,6 +4,9 @@ namespace Lab4
 {
     public partial class Form1 : Form
     {
+        Console.OutputEncoding = System.Text.Encoding.Unicode;
+        Console.InputEncoding = System.Text.Encoding.Unicode;
+
         public Form1()
         {
             InitializeComponent();
